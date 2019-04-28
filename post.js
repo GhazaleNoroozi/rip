@@ -1,15 +1,13 @@
 const http = require('http');
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = 8080;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  if(req.method == 'GET')
-    res.end('GET\n');
-  if(req.method == 'POST')
-    res.end('POST\n');
+  if(req.method == 'PUT')
+    res.end(req.url.substr(4,req.url.length));
 });
 
 
